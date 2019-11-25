@@ -2,7 +2,7 @@
 /target/
 
 #InteliJ Idea settings of the project
-.idea/
+/.idea/
 
 #builds folder
 out/
