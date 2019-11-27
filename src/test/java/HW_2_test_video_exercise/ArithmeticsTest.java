@@ -1,14 +1,17 @@
 package HW_2_test_video_exercise;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.*;
+import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 
 public class ArithmeticsTest {
     private static Arithmetics a;
+
+    @Rule
+    public final ExpectedException exp = ExpectedException.none();
+
+    @Rule
+    public Timeout time = new Timeout(1000);
 
     @BeforeClass
     public static void runTest() {
@@ -37,11 +40,14 @@ public class ArithmeticsTest {
     @Test
     public void testDivide() {
         double result = a.divide(6, 2);
-        if(result != 3.0) Assert.fail();
+//        if(result != 3.0) Assert.fail();
+        Assert.assertEquals(3.0, result, 0.0 );
     }
 
-    @Test(expected = Exception.class)
+//    @Test(expected = Exception.class)
+    @Test
     public void testDivideException() {
+        exp.expect(ArithmeticException.class);
         a.divide(6, 0);
     }
 }
