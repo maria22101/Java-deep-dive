@@ -4,19 +4,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Controller {
-    public static final int DEFAULT_MIN = 0;
-    public static final int RAND_MAX = (int) (Math.random() * 101);
+    static final int DEFAULT_MIN = 0;
+    static final int RAND_MAX = (int) (Math.random() * 101);
 
     private Model model;
     private View view;
 
-    public Controller(Model m, View v) {
+    Controller(Model m, View v) {
         model = m;
         view = v;
     }
 
     // The Work method
-    public void processUser() {
+    void processUser() {
 
         /*
         * if you want an int from the particular lowerBound and upperBound:
@@ -59,7 +59,7 @@ public class Controller {
     }
 
     // The Utility methods
-    public int rand() {
+    int rand() {
         return DEFAULT_MIN + (int) (Math.random() * (RAND_MAX + 1 - DEFAULT_MIN));
     }
 
@@ -67,7 +67,7 @@ public class Controller {
         return from + (int) (Math.random() * (to + 1 - from));
     }
 
-    public int getUserAnswer(Scanner sc) {
+    int getUserAnswer(Scanner sc) {
         while (!sc.hasNextInt()) {
             view.printMessage(View.INVALID_INPUT);
             sc.next();

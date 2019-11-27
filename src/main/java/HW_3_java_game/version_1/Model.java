@@ -2,21 +2,21 @@ package HW_3_java_game.version_1;
 
 import java.util.Arrays;
 
-public class Model {
+class Model {
     private final static int INITIAL_SIZE = 5;
     private final static double RESIZE_KOEF = 1.4;
     private int[] resultsHistory;
     private int elementsInResultsHistory = 0;
 
-    public Model() {
+    Model() {
         resultsHistory = new int[INITIAL_SIZE];
     }
 
-    public int[] getResultsHistory() {
+    int[] getResultsHistory() {
         return resultsHistory;
     }
 
-    public int getElementsInResultsHistory() {
+    int getElementsInResultsHistory() {
         return elementsInResultsHistory;
     }
 
