@@ -17,6 +17,8 @@ public class Controller {
         model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
         model.setSecretValue();
 
+        System.out.println(model.getSecretValue());
+
         while (model.checkInput(getInputValueWithScanner(sc)));
 
         view.printMessage(view.GAME_FINISH + model.getSecretValue());

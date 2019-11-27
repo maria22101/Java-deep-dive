@@ -1,7 +1,5 @@
 package HW_3_java_game.version_2_refactored;
 
-import java.util.Arrays;
-
 public class Model {
     private final static int INITIAL_INPUTS_HISTORY_SIZE = 4;
     private final static double INPUTS_HISTORY_RESIZE_KOEF = 1.3;
@@ -29,8 +27,8 @@ public class Model {
         return secretValue;
     }
 
-    public int setSecretValue() {
-        return minBarrier + (int) (Math.random() * (maxBarrier + 1 - minBarrier));
+    public void setSecretValue() {
+        secretValue = minBarrier + (int) (Math.random() * (maxBarrier + 1 - minBarrier));;
     }
 
     public int[] getInputsHistory() {
@@ -39,6 +37,11 @@ public class Model {
 
     public int getElementsInInputsHistory() {
         return elementsInInputsHistory;
+    }
+
+    public void setPrimaryBarrier(int minBarrier, int maxBarrier) {
+        this.minBarrier = minBarrier;
+        this.maxBarrier = maxBarrier;
     }
 
     void updateInputsHistory(int input) {
@@ -76,10 +79,5 @@ public class Model {
             minBarrier = input;
         }
         return true;
-    }
-
-    public void setPrimaryBarrier(int minBarrier, int maxBarrier) {
-        this.minBarrier = minBarrier;
-        this.maxBarrier = maxBarrier;
     }
 }
