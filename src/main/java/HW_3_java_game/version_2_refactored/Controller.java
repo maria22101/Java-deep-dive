@@ -17,30 +17,26 @@ public class Controller {
         model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
         model.setSecretValue();
 
-        System.out.println(model.getSecretValue());
-
         while (model.checkInput(getInputValueWithScanner(sc)));
 
         view.printMessage(view.GAME_FINISH + model.getSecretValue());
-        view.printMessage(view.YOUR_WAY + model.inputsHistoryInString());
+        view.printMessage(view.YOUR_WAY + model.getInputsHistoryInString());
     }
 
     private int getInputValueWithScanner(Scanner sc) {
         int input = 0;
-        view.printMessage(getInputIntMessage());
+        view.printMessage(model.getElementsInInputsHistory() > 0 ? getWrongInputMessage() : getWelcomeMessage());
 
         while (true) {
-
             while (!sc.hasNextInt()) {
-                view.printMessage(view.WRONG_INPUT_INT_DATA + getInputIntMessage());
+                view.printMessage(getWrongInputMessage());
                 sc.next();
             }
             if ((input = sc.nextInt()) <= model.getMinBarrier() || input >= model.getMaxBarrier()) {
-                view.printMessage(view.WRONG_INPUT_INT_DATA + getInputIntMessage());
+                view.printMessage(getWrongInputMessage());
                 continue;
             }
             break;
-
         }
 
         return input;
@@ -57,5 +53,20 @@ public class Controller {
                 view.SPACE_SIGN,
                 view.EQUAL_SIGN,
                 view.SPACE_SIGN);
+    }
+
+    private String getWelcomeMessage() {
+        return view.concatenatedString(
+                view.GAME_START,
+                getInputIntMessage());
+    }
+
+    private String getWrongInputMessage() {
+        return view.concatenatedString(
+                view.WRONG_INPUT_INT_DATA,
+                view.YOUR_WAY,
+                model.getInputsHistoryInString(),
+                view.FULL_STOP_SIGN,
+                getInputIntMessage());
     }
 }

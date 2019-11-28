@@ -28,7 +28,7 @@ public class Model {
     }
 
     public void setSecretValue() {
-        secretValue = minBarrier + (int) (Math.random() * (maxBarrier + 1 - minBarrier));;
+        secretValue = minBarrier + 1 + (int) (Math.random() * (maxBarrier + 1 - minBarrier));
     }
 
     public int[] getInputsHistory() {
@@ -49,12 +49,17 @@ public class Model {
         inputsHistory[elementsInInputsHistory++] = input;
     }
 
-    public String inputsHistoryInString() {
+    public String getInputsHistoryInString() {
         StringBuffer sb = new StringBuffer();
+        sb.append("{");
         for (int i = 0; i < elementsInInputsHistory; i++) {
-            sb.append(inputsHistory[i] + " ");
+            if (i != elementsInInputsHistory - 1) {
+                sb.append(inputsHistory[i] + " ");
+            }else {
+                sb.append(inputsHistory[i]);
+            }
         }
-        return sb.toString();
+        return sb.append("}").toString();
     }
 
     public void resize() {
