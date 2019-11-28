@@ -8,12 +8,12 @@ public class ModelTest {
     @Before
     public void runTest() {
         model = new Model();
+        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
     }
 
     @Ignore
     @Test
     public void testSetSecretValue() {
-        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
         int correctSecretValueCounter = 0;
         for (int i = 0; i < 10000; i++) {
             model.setSecretValue();
@@ -62,15 +62,30 @@ public class ModelTest {
         Assert.assertEquals(expectedResult, result);
     }
 
-//    @Test
-//    public void checkInputIfEqualSecretValue() {
-//    }
-//
-//    @Test
-//    public void checkInputIfMoreThanSecretValue() {
-//    }
-//
-//    @Test
-//    public void checkInputIfLessThanSecretValue() {
-//    }
+    @Test
+    public void testCheckInputIfEqualSecretValue() {
+        boolean result = model.checkInput(model.getSecretValue());
+
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testCheckInputIfMoreThanSecretValue() {
+        while (model.getSecretValue() == model.getMaxBarrier() - 1) {
+            model.setSecretValue();
+        }
+        boolean result = model.checkInput(model.getSecretValue() + 1);
+
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void testCheckInputIfLessThanSecretValue() {
+        while (model.getSecretValue() == model.getMinBarrier() + 1) {
+            model.setSecretValue();
+        }
+        boolean result = model.checkInput(model.getSecretValue() - 1);
+
+        Assert.assertTrue(result);
+    }
 }
