@@ -2,6 +2,9 @@ package HW_3_java_game.version_2_refactored;
 
 import java.util.Scanner;
 
+/**
+ * Created by Bilous M. 25.11.2019
+ */
 public class Controller {
     private Model model;
     private View view;

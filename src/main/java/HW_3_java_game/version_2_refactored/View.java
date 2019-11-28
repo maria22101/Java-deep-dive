@@ -1,5 +1,8 @@
 package HW_3_java_game.version_2_refactored;
 
+/**
+ * Created by Bilous M. 25.11.2019
+ */
 public class View {
     //text constants
     public final static String EQUAL_SIGN = "=";

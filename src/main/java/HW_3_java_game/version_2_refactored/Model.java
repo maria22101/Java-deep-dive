@@ -1,5 +1,8 @@
 package HW_3_java_game.version_2_refactored;
 
+/**
+ * Created by Bilous M. 25.11.2019
+ */
 public class Model {
     private final static int INITIAL_INPUTS_HISTORY_SIZE = 4;
     private final static double INPUTS_HISTORY_RESIZE_KOEF = 1.3;
@@ -31,10 +34,6 @@ public class Model {
         secretValue = (int) Math.ceil(Math.random() * (maxBarrier + 1 - minBarrier) + minBarrier);
     }
 
-    public int[] getInputsHistory() {
-        return inputsHistory;
-    }
-
     public int getElementsInInputsHistory() {
         return elementsInInputsHistory;
     }
@@ -55,7 +54,7 @@ public class Model {
         for (int i = 0; i < elementsInInputsHistory; i++) {
             if (i != elementsInInputsHistory - 1) {
                 sb.append(inputsHistory[i] + " ");
-            }else {
+            } else {
                 sb.append(inputsHistory[i]);
             }
         }
