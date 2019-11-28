@@ -30,8 +30,9 @@ public class Model {
         return secretValue;
     }
 
+    //test implemented, passed and marked @Ignored
     public void setSecretValue() {
-        secretValue = (int) Math.ceil(Math.random() * (maxBarrier + 1 - minBarrier) + minBarrier);
+        secretValue = minBarrier + (int) (Math.ceil(Math.random() * (maxBarrier - minBarrier - 1)));
     }
 
     public int[] getInputsHistory() {

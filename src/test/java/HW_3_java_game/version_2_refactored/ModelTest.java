@@ -1,21 +1,28 @@
 package HW_3_java_game.version_2_refactored;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.*;
 
 public class ModelTest {
     private static Model model;
 
-    @BeforeClass
-    public static void runTest() {
+    @Before
+    public void runTest() {
         model = new Model();
     }
 
+    @Ignore
     @Test
-    public void setSecretValue() {
+    public void testSetSecretValue() {
+        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER, GlobalConstants.PRIMARY_MAX_BARRIER);
+        int correctSecretValueCounter = 0;
+        for (int i = 0; i < 10000; i++) {
+            model.setSecretValue();
+            if (model.getSecretValue() > model.getMinBarrier() && model.getSecretValue() < model.getMaxBarrier()) {
+                correctSecretValueCounter++;
+            }
+        }
+
+        Assert.assertEquals(10000, correctSecretValueCounter);
     }
 
     @Test
@@ -55,15 +62,15 @@ public class ModelTest {
         Assert.assertEquals(expectedResult, result);
     }
 
-    @Test
-    public void checkInputIfEqualSecretValue() {
-    }
-
-    @Test
-    public void checkInputIfMoreThanSecretValue() {
-    }
-
-    @Test
-    public void checkInputIfLessThanSecretValue() {
-    }
+//    @Test
+//    public void checkInputIfEqualSecretValue() {
+//    }
+//
+//    @Test
+//    public void checkInputIfMoreThanSecretValue() {
+//    }
+//
+//    @Test
+//    public void checkInputIfLessThanSecretValue() {
+//    }
 }
