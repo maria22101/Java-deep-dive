@@ -28,7 +28,7 @@ public class Model {
     }
 
     public void setSecretValue() {
-        secretValue = minBarrier + 1 + (int) (Math.random() * (maxBarrier + 1 - minBarrier));
+        secretValue = (int) Math.ceil(Math.random() * (maxBarrier + 1 - minBarrier) + minBarrier);
     }
 
     public int[] getInputsHistory() {
