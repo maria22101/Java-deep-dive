@@ -43,7 +43,7 @@ public class Model {
         this.maxBarrier = maxBarrier;
     }
 
-    void updateInputsHistory(int input) {
+    private void updateInputsHistory(int input) {
         resize();
         inputsHistory[elementsInInputsHistory++] = input;
     }
@@ -61,7 +61,7 @@ public class Model {
         return sb.append("}").toString();
     }
 
-    public void resize() {
+    private void resize() {
         if (elementsInInputsHistory == inputsHistory.length - 1) {
             int newSize = (int) (inputsHistory.length * INPUTS_HISTORY_RESIZE_KOEF);
             int[] resizedResultHistory = new int[newSize];
