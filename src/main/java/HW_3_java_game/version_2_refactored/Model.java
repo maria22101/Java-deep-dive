@@ -34,6 +34,10 @@ public class Model {
         secretValue = (int) Math.ceil(Math.random() * (maxBarrier + 1 - minBarrier) + minBarrier);
     }
 
+    public int[] getInputsHistory() {
+        return inputsHistory;
+    }
+
     public int getElementsInInputsHistory() {
         return elementsInInputsHistory;
     }
@@ -43,7 +47,7 @@ public class Model {
         this.maxBarrier = maxBarrier;
     }
 
-    private void updateInputsHistory(int input) {
+    public void updateInputsHistory(int input) {
         resize();
         inputsHistory[elementsInInputsHistory++] = input;
     }
@@ -62,7 +66,7 @@ public class Model {
     }
 
     private void resize() {
-        if (elementsInInputsHistory == inputsHistory.length - 1) {
+        if (elementsInInputsHistory == inputsHistory.length) {
             int newSize = (int) (inputsHistory.length * INPUTS_HISTORY_RESIZE_KOEF);
             int[] resizedResultHistory = new int[newSize];
 
