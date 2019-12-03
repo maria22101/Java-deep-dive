@@ -2,25 +2,20 @@ package task_1.Model.Entity;
 
 import task_1.Model.Bank;
 
-public class DepositWithLimitedReplenishment extends DepositNonTerminable {
+public class DepositWithLimitedReplenishment extends DepositNonTerminableReplenished {
     private double maxReplenishmentSum;
 
-    public DepositWithLimitedReplenishment(int sum, double interestRate, int periodInDays,
-                                           Bank bank) {
-        super(sum, interestRate, periodInDays, bank);
-        maxReplenishmentSum = sum * 0.5;
+    public DepositWithLimitedReplenishment(double sum, double interestRate, int periodInDays, Bank bank,
+                                           int daysPassedBeforeReplenishment, int maxReplenishmentSum) {
+        super(sum, interestRate, periodInDays, bank, daysPassedBeforeReplenishment);
+        this.maxReplenishmentSum = maxReplenishmentSum;
     }
 
     public void replenish(double replenishmentSum) {
-        if (replenishmentSum <= maxReplenishmentSum) {
-            sum += replenishmentSum;
-        } else {
-            sum += maxReplenishmentSum;
-        }
+
     }
 
-    @Override
     public int calculateIncome() {
-        return super.calculateIncome(); //to implement
+        return 0;
     }
 }
