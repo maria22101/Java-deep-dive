@@ -13,7 +13,23 @@ public class DepositTerminable extends Deposit {
         this.interestRateForTermination = interestRateForTermination;
     }
 
-    public int calculateIncome() {
-        return 0; // to implement
+    public double calculateIncome() {
+        return getSum() * interestRateForTermination / 365 * daysPassedBeforeTermination;
+    }
+
+    public int getDaysPassedBeforeTermination() {
+        return daysPassedBeforeTermination;
+    }
+
+    public void setDaysPassedBeforeTermination(int daysPassedBeforeTermination) {
+        this.daysPassedBeforeTermination = daysPassedBeforeTermination;
+    }
+
+    public double getInterestRateForTermination() {
+        return interestRateForTermination;
+    }
+
+    public void setInterestRateForTermination(double interestRateForTermination) {
+        this.interestRateForTermination = interestRateForTermination;
     }
 }

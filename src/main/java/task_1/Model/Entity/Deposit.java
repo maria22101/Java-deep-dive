@@ -3,10 +3,10 @@ package task_1.Model.Entity;
 import task_1.Model.Bank;
 
 public abstract class Deposit {
-    public double sum;
-    public double interestRate;
-    public int periodInDays;
-    public Bank bank;
+    private double sum;
+    private double interestRate;
+    private int periodInDays;
+    private Bank bank;
 
     public Deposit(double sum, double interestRate, int periodInDays, Bank bank) {
         this.sum = sum;
@@ -15,5 +15,37 @@ public abstract class Deposit {
         this.bank = bank;
     }
 
-    public abstract int calculateIncome();
+    public abstract double calculateIncome();
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public int getPeriodInDays() {
+        return periodInDays;
+    }
+
+    public void setPeriodInDays(int periodInDays) {
+        this.periodInDays = periodInDays;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
 }

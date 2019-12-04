@@ -7,7 +7,7 @@ public class DepositNonTerminable extends Deposit {
         super(sum, interestRate, periodInDays, bank);
     }
 
-    public int calculateIncome() {
-        return 0; // to implement
+    public double calculateIncome() {
+        return getSum() * getInterestRate() / 365 * getPeriodInDays();
     }
 }
