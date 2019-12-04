@@ -2,6 +2,8 @@ package task_1.model.entity;
 
 import task_1.model.Bank;
 
+import java.util.Objects;
+
 public class DepositWithProgressiveRate extends DepositNonTerminable {
     private double progressRate;
 
@@ -32,5 +34,30 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
 
     public void setProgressRate(double progressRate) {
         this.progressRate = progressRate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DepositWithProgressiveRate)) return false;
+        if (!super.equals(o)) return false;
+        DepositWithProgressiveRate that = (DepositWithProgressiveRate) o;
+        return Double.compare(that.progressRate, progressRate) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), progressRate);
+    }
+
+    @Override
+    public String toString() {
+        return "DepositWithProgressiveRate{" +
+                "sum=" + getSum() +
+                ", interestRate=" + getInterestRate() +
+                ", periodInDays=" + getPeriodInDays() +
+                ", bank=" + getBank() +
+                "progressRate=" + progressRate +
+                '}';
     }
 }
