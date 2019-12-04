@@ -57,7 +57,7 @@ public class DepositTerminable extends Deposit {
                 ", interestRate=" + getInterestRate() +
                 ", periodInDays=" + getPeriodInDays() +
                 ", bank=" + getBank() +
-                "daysPassedBeforeTermination=" + daysPassedBeforeTermination +
+                ", daysPassedBeforeTermination=" + daysPassedBeforeTermination +
                 ", interestRateForTermination=" + interestRateForTermination +
                 '}';
     }

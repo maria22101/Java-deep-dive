@@ -57,7 +57,7 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
                 ", interestRate=" + getInterestRate() +
                 ", periodInDays=" + getPeriodInDays() +
                 ", bank=" + getBank() +
-                "progressRate=" + progressRate +
+                ", progressRate=" + progressRate +
                 '}';
     }
 }

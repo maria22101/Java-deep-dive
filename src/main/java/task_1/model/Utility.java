@@ -32,7 +32,14 @@ public class Utility {
     }
 
     public List<Deposit> depositsSortedByBanks() {
-        return new ArrayList<Deposit>(); // to implement after test
+        return deposits
+                .stream()
+                .sorted(new Comparator<Deposit>() {
+                    @Override
+                    public int compare(Deposit o1, Deposit o2) {
+                       return o1.getBank().toString().compareTo(o2.getBank().toString());
+                    }})
+                .collect(Collectors.toList());
     }
 
     public List<Deposit> depositsTerminable() {

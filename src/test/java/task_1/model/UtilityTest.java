@@ -51,12 +51,12 @@ public class UtilityTest {
                 60, 0.03);
         Deposit d3 = new DepositWithReplenishment(1000, 0.12, 180, Bank.CREDI_AGRICOLE);
 
-        expectedList.add(d2);
         expectedList.add(d1);
         expectedList.add(d3);
+        expectedList.add(d2);
 
-        utility.add(d2);
         utility.add(d1);
+        utility.add(d2);
         utility.add(d3);
         resultList = utility.depositsSortedByBanks();
 

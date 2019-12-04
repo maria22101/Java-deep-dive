@@ -59,7 +59,7 @@ public class DepositWithReplenishment extends DepositNonTerminable{
                 ", interestRate=" + getInterestRate() +
                 ", periodInDays=" + getPeriodInDays() +
                 ", bank=" + getBank() +
-                "daysLeftTillEndOfPeriod=" + daysLeftTillEndOfPeriod +
+                ", daysLeftTillEndOfPeriod=" + daysLeftTillEndOfPeriod +
                 ", replenishmentSum=" + replenishmentSum +
                 '}';
     }
