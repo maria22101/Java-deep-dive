@@ -59,7 +59,10 @@ public class Utility {
     }
 
     public List<Deposit> depositsForTheGivenSum(double sum) {
-        return new ArrayList<Deposit>(); // to implement after test
+        return deposits
+                .stream()
+                .filter((d) -> d.getSum() < sum)
+                .collect(Collectors.toList());
     }
 
     public void remove (Deposit d) {
