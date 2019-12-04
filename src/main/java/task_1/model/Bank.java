@@ -1,4 +1,4 @@
-package task_1.Model;
+package task_1.model;
 
 public enum Bank {
     PRIVAT,

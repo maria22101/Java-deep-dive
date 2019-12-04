@@ -1,6 +1,6 @@
-package task_1.Model.Entity;
+package task_1.model.entity;
 
-import task_1.Model.Bank;
+import task_1.model.Bank;
 
 public class DepositTerminable extends Deposit {
     private int daysPassedBeforeTermination;

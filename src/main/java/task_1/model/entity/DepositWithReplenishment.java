@@ -1,13 +1,13 @@
-package task_1.Model.Entity;
+package task_1.model.entity;
 
-import task_1.Model.Bank;
+import task_1.model.Bank;
 
-public class DepositReplenished extends DepositNonTerminable{
+public class DepositWithReplenishment extends DepositNonTerminable{
     private int daysLeftTillEndOfPeriod;
     private double replenishmentSum;
 
-    public DepositReplenished(double sum, double interestRate, int periodInDays,
-                              Bank bank) {
+    public DepositWithReplenishment(double sum, double interestRate, int periodInDays,
+                                    Bank bank) {
         super(sum, interestRate, periodInDays, bank);
     }
 

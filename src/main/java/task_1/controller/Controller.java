@@ -1,4 +1,4 @@
-package task_1;
+package task_1.controller;
 
 public class Controller {
 }
