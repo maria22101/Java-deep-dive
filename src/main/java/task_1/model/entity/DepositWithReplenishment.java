@@ -13,6 +13,13 @@ public class DepositWithReplenishment extends DepositNonTerminable{
         super(sum, interestRate, periodInDays, bank);
     }
 
+    public DepositWithReplenishment(double sum, double interestRate, int periodInDays,
+                                    Bank bank, int daysLeftTillEndOfPeriod, double replenishmentSum) {
+        super(sum, interestRate, periodInDays, bank);
+        this.daysLeftTillEndOfPeriod = daysLeftTillEndOfPeriod;
+        this.replenishmentSum = replenishmentSum;
+    }
+
     @Override
     public double calculateIncome() {
         double initialSumIncome = super.calculateIncome();

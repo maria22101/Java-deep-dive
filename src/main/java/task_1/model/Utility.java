@@ -18,7 +18,48 @@ public class Utility {
         }
     }
 
-    public List<Deposit> depositsSortedByRate() {
+    public void remove (Deposit d) {
+        if (deposits.contains(d)) {
+            deposits.remove(d);
+        }
+    }
+
+    public void displayDepositsSortedByRate() {
+        depositsSortedByRate().forEach(deposit -> {
+            deposit.toString();
+            System.out.println();
+        });
+    }
+
+    public void displayDepositsSortedByBanks() {
+        depositsSortedByBanks().forEach(deposit -> {
+            deposit.toString();
+            System.out.println();
+        });
+    }
+
+    public void displayDepositsTerminable() {
+        depositsTerminable().forEach(deposit -> {
+            deposit.toString();
+            System.out.println();
+        });
+    }
+
+    public void displayDepositsWithReplenishment() {
+        depositsWithReplenishment().forEach(deposit -> {
+            deposit.toString();
+            System.out.println();
+        });
+    }
+
+    public void displayDepositsForTheGivenSum(double sum) {
+        depositsForTheGivenSum(sum).forEach(deposit -> {
+            deposit.toString();
+            System.out.println();
+        });
+    }
+
+    private List<Deposit> depositsSortedByRate() {
         return deposits
                 .stream()
                 .sorted(new Comparator<Deposit>() {
@@ -33,7 +74,7 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsSortedByBanks() {
+    private List<Deposit> depositsSortedByBanks() {
         return deposits
                 .stream()
                 .sorted(new Comparator<Deposit>() {
@@ -44,31 +85,24 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsTerminable() {
+    private List<Deposit> depositsTerminable() {
         return deposits
                 .stream()
                 .filter((d) -> d instanceof DepositTerminable)
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsWithReplenishment() {
+    private List<Deposit> depositsWithReplenishment() {
         return deposits
                 .stream()
                 .filter((d) -> d instanceof DepositWithReplenishment)
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsForTheGivenSum(double sum) {
+    private List<Deposit> depositsForTheGivenSum(double sum) {
         return deposits
                 .stream()
                 .filter((d) -> d.getSum() < sum)
                 .collect(Collectors.toList());
     }
-
-    public void remove (Deposit d) {
-        if (deposits.contains(d)) {
-            deposits.remove(d);
-        }
-    }
-
 }
