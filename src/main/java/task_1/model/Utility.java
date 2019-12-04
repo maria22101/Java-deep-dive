@@ -1,6 +1,8 @@
 package task_1.model;
 
 import task_1.model.entity.Deposit;
+import task_1.model.entity.DepositTerminable;
+import task_1.model.entity.DepositWithReplenishment;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -43,11 +45,17 @@ public class Utility {
     }
 
     public List<Deposit> depositsTerminable() {
-        return new ArrayList<Deposit>(); // to implement after test
+        return deposits
+                .stream()
+                .filter((d) -> d instanceof DepositTerminable)
+                .collect(Collectors.toList());
     }
 
     public List<Deposit> depositsWithReplenishment() {
-        return new ArrayList<Deposit>(); // to implement after test
+        return deposits
+                .stream()
+                .filter((d) -> d instanceof DepositWithReplenishment)
+                .collect(Collectors.toList());
     }
 
     public List<Deposit> depositsForTheGivenSum(double sum) {
