@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Utility {
-    private List<Deposit> deposits = new ArrayList<Deposit>();
+    private List<Deposit> deposits;
+
+    public Utility() {
+        this.deposits = new ArrayList<Deposit>();
+    }
 
     public void add(Deposit d) {
         if (!deposits.contains(d)) {
