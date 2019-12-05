@@ -24,10 +24,10 @@ public class DepositWithReplenishment extends DepositNonTerminable{
     }
 
     /**
-     *This method calculates income for an instance of this class as follows:
+     *This method calculates income for this class instance as follows:
      * first - the related super class method applied;
-     * second - additional income from the replenishing sum considering
-     * days left till the deposit period end.     *
+     * second - additional income calculated from the replenishing sum
+     * considering days left till the end of the deposit period.
      * @return double value - income for an instance of this class
      */
     @Override

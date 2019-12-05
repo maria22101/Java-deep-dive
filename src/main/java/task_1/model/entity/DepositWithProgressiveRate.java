@@ -17,10 +17,10 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
     }
 
     /**
-     *This method calculates income for an instance of this class as follows:
+     *This method calculates income for this class instance as follows:
      * first - the related super class method applied;
-     * second - additional income from the progressRate calculated assuming
-     * an additional progressRate cumulatively growing every 30 days     *
+     * second - additional income calculated assuming progressRate
+     * cumulative increase every 30 days.
      * @return double value - income for an instance of this class
      */
     @Override
