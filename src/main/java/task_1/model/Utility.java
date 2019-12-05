@@ -24,42 +24,7 @@ public class Utility {
         }
     }
 
-    public void displayDepositsSortedByRate() {
-        depositsSortedByRate().forEach(deposit -> {
-            deposit.toString();
-            System.out.println();
-        });
-    }
-
-    public void displayDepositsSortedByBanks() {
-        depositsSortedByBanks().forEach(deposit -> {
-            deposit.toString();
-            System.out.println();
-        });
-    }
-
-    public void displayDepositsTerminable() {
-        depositsTerminable().forEach(deposit -> {
-            deposit.toString();
-            System.out.println();
-        });
-    }
-
-    public void displayDepositsWithReplenishment() {
-        depositsWithReplenishment().forEach(deposit -> {
-            deposit.toString();
-            System.out.println();
-        });
-    }
-
-    public void displayDepositsForTheGivenSum(double sum) {
-        depositsForTheGivenSum(sum).forEach(deposit -> {
-            deposit.toString();
-            System.out.println();
-        });
-    }
-
-    private List<Deposit> depositsSortedByRate() {
+    public List<Deposit> depositsSortedByRate() {
         return deposits
                 .stream()
                 .sorted(new Comparator<Deposit>() {
@@ -74,35 +39,55 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
-    private List<Deposit> depositsSortedByBanks() {
+    public List<Deposit> depositsSortedByBanks() {
         return deposits
                 .stream()
                 .sorted(new Comparator<Deposit>() {
                     @Override
                     public int compare(Deposit o1, Deposit o2) {
-                       return o1.getBank().toString().compareTo(o2.getBank().toString());
+                        return o1.getBank().toString().compareTo(o2.getBank().toString());
                     }})
                 .collect(Collectors.toList());
     }
 
-    private List<Deposit> depositsTerminable() {
+    public List<Deposit> depositsTerminable() {
         return deposits
                 .stream()
                 .filter((d) -> d instanceof DepositTerminable)
                 .collect(Collectors.toList());
     }
 
-    private List<Deposit> depositsWithReplenishment() {
+    public List<Deposit> depositsWithReplenishment() {
         return deposits
                 .stream()
                 .filter((d) -> d instanceof DepositWithReplenishment)
                 .collect(Collectors.toList());
     }
 
-    private List<Deposit> depositsForTheGivenSum(double sum) {
+    public List<Deposit> depositsForTheGivenSum(double sum) {
         return deposits
                 .stream()
-                .filter((d) -> d.getSum() < sum)
+                .filter((d) -> d.getSum() < sum + 0.01)
                 .collect(Collectors.toList());
+    }
+
+    public void displayDepositsSortedByRate() {
+        depositsSortedByRate().forEach(deposit -> System.out.println(deposit.toString()));
+    }
+
+    public void displayDepositsSortedByBanks() {
+        depositsSortedByBanks().forEach(deposit -> System.out.println(deposit.toString()));
+    }
+
+    public void displayDepositsTerminable() {
+        depositsTerminable().forEach(deposit -> System.out.println(deposit.toString()));
+    }
+
+    public void displayDepositsWithReplenishment() {
+        depositsWithReplenishment().forEach(deposit -> System.out.println(deposit.toString()));
+    }
+
+    public void displayDepositsForTheGivenSum(double sum) {
+        depositsForTheGivenSum(sum).forEach(deposit -> System.out.println(deposit.toString()));
     }
 }

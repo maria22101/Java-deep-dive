@@ -1,64 +1,43 @@
 package task_1.model;
 
-import task_1.model.entity.Deposit;
-import task_1.model.entity.DepositTerminable;
+import task_1.model.entity.*;
 
 public enum DepositProduct {
-    DEPOSIT_TERMINABLE(new DepositTerminable(10000, 0.12, 365, Bank.OTP,
-            60, 0.03));
+    DEPOSIT_TERMINABLE_PRIVAT(new DepositTerminable(5000, 0.12, 180, Bank.PRIVAT,
+            30, 0.02)),
 
+    DEPOSIT_NON_TERMINABLE_PRIVAT(new DepositNonTerminable(5000, 0.14, 180, Bank.PRIVAT)),
 
+    DEPOSIT_REPLENISHED_CREDI(new DepositWithReplenishment(20000, 0.12, 365,
+            Bank.CREDI_AGRICOLE,180, 10000)),
 
-//    task_1.model.entity.Deposit d1 = new DepositNonTerminable(1000, 0.15, 365, Bank.PRIVAT);
-//    task_1.model.entity.Deposit d2 = new DepositNonTerminable(1000, 0.14, 365, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d3 = new DepositTerminable(10000, 0.13, 365, Bank.OTP,
-//            60, 0.03);
-//    task_1.model.entity.Deposit d1 = new DepositNonTerminable(1000, 0.14, 365, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d2 = new DepositTerminable(10000, 0.13, 365, Bank.OTP,
-//            60, 0.03);
-//    task_1.model.entity.Deposit d3 = new DepositWithReplenishment(1000, 0.12, 180, Bank.CREDI_AGRICOLE);
-//task_1.model.entity.Deposit d1 = new DepositTerminable(10000, 0.12, 365, Bank.EXIM,
-//        180, 0.04);
-//    task_1.model.entity.Deposit d2 = new DepositWithReplenishment(1000, 0.13, 180, Bank.EXIM);
-//    task_1.model.entity.Deposit d3 = new DepositTerminable(10000, 0.13, 365, Bank.OTP,
-//            60, 0.03);
-//    task_1.model.entity.Deposit d1 = new DepositNonTerminable(1000, 0.14, 365, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d2 = new DepositWithReplenishment(1000, 0.13, 180, Bank.EXIM);
-//    task_1.model.entity.Deposit d3 = new DepositWithReplenishment(1000, 0.12, 180, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d1 = new DepositNonTerminable(1000, 0.14, 365, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d2 = new DepositWithReplenishment(10000, 0.13, 180, Bank.EXIM);
-//    task_1.model.entity.Deposit d3 = new DepositWithReplenishment(10000, 0.12, 180, Bank.CREDI_AGRICOLE);
-//    task_1.model.entity.Deposit d4 = new DepositTerminable(50000, 0.14, 365, Bank.OTP,
-//            60, 0.03);
+    DEPOSIT_PROGRESSIVE_CREDI(new DepositWithProgressiveRate(20000, 0.10, 365,
+            Bank.CREDI_AGRICOLE, 0.2)),
+
+    DEPOSIT_TERMINABLE_EXIM(new DepositTerminable(10000, 0.13, 180, Bank.EXIM,
+            90, 0.01)),
+
+    DEPOSIT_REPLENISHED_EXIM(new DepositWithReplenishment(10000, 0.14, 180,
+            Bank.EXIM,60, 10000)),
+
+    DEPOSIT_TERMINABLE_OTP(new DepositTerminable(10000, 0.12, 365, Bank.OTP,
+            60, 0.03)),
+
+    DEPOSIT_NON_TERMINABLE_OTP(new DepositNonTerminable(10000, 0.15, 365, Bank.OTP)),
+
+    DEPOSIT_REPLENISHED_OTP(new DepositWithReplenishment(10000, 0.14, 180, Bank.OTP,
+            180, 5000)),
+
+    DEPOSIT_PROGRESSIVE_OTP(new DepositWithProgressiveRate(10000, 0.11, 365,
+            Bank.OTP, 0.2));
+
+    private Deposit deposit;
 
     private DepositProduct(Deposit deposit) {
+        this.deposit = deposit;
     }
 
-//    private double sum;
-//    private double interestRate;
-//    private int periodInDays;
-//    private Bank bank;
-//
-//    private int daysPassedBeforeTermination;
-//    private double interestRateForTermination;
-//
-////    private int daysLeftTillEndOfPeriod;
-////    private double replenishmentSum;
-//
-//    private double progressRate;
-//
-//
-//
-//    private Deposit(double sum, double interestRate, int periodInDays, Bank bank,
-//                    int daysPassedBeforeTermination, double interestRateForTermination) {
-//        this(sum, interestRate, periodInDays, bank);
-//        this.daysPassedBeforeTermination = daysPassedBeforeTermination;
-//        this.interestRateForTermination = interestRateForTermination;
-//    }
-//
-//    private Deposit(double sum, double interestRate, int periodInDays,
-//                    Bank bank, double progressRate) {
-//        this(sum, interestRate, periodInDays, bank);
-//        this.progressRate = progressRate;
-//    }
+    public Deposit getDeposit() {
+        return deposit;
+    }
 }
