@@ -4,6 +4,8 @@ import task_1.model.Utility;
 import task_1.model.entity.Deposit;
 import task_1.view.View;
 
+import static task_1.view.TextConstants.*;
+
 public class Controller {
     private Utility utility;
     private View view;
@@ -22,47 +24,47 @@ public class Controller {
     }
 
     public void displayDepositsSortedByRate() {
-        view.printSign(view.REQUEST_SIGN);
-        view.printMessage(view.DEPOSITS_SORTED_BY_RATE);
+        view.printSign(REQUEST_SIGN);
+        view.printRequest(DEPOSITS_SORTED_BY_RATE);
 
         utility.displayDepositsSortedByRate();
 
-        view.printSign(view.SPACE_BETWEEN_REQUESTS);
+        view.printSign(SPACE_BETWEEN_REQUESTS);
     }
 
     public void displayDepositsSortedByBanks() {
-        view.printSign(view.REQUEST_SIGN);
-        view.printMessage(view.DEPOSITS_SORTED_BY_BANK);
+        view.printSign(REQUEST_SIGN);
+        view.printRequest(DEPOSITS_SORTED_BY_BANK);
 
         utility.displayDepositsSortedByBanks();
 
-        view.printSign(view.SPACE_BETWEEN_REQUESTS);
+        view.printSign(SPACE_BETWEEN_REQUESTS);
     }
 
     public void displayDepositsTerminable() {
-        view.printSign(view.REQUEST_SIGN);
-        view.printMessage(view.DEPOSITS_TERMINABLE);
+        view.printSign(REQUEST_SIGN);
+        view.printRequest(DEPOSITS_TERMINABLE);
 
         utility.displayDepositsTerminable();
 
-        view.printSign(view.SPACE_BETWEEN_REQUESTS);
+        view.printSign(SPACE_BETWEEN_REQUESTS);
     }
 
     public void displayDepositsWithReplenishment() {
-        view.printSign(view.REQUEST_SIGN);
-        view.printMessage(view.DEPOSITS_WITH_REPLENISHMENT);
+        view.printSign(REQUEST_SIGN);
+        view.printRequest(DEPOSITS_WITH_REPLENISHMENT);
 
         utility.displayDepositsWithReplenishment();
 
-        view.printSign(view.SPACE_BETWEEN_REQUESTS);
+        view.printSign(SPACE_BETWEEN_REQUESTS);
     }
 
     public void displayDepositsForTheGivenSum(double sum) {
-        view.printSign(view.REQUEST_SIGN);
-        view.printMessage(view.DEPOSITS_FOR_SUM);
+        view.printSign(REQUEST_SIGN);
+        view.printRequest(DEPOSITS_FOR_SUM);
 
         utility.displayDepositsForTheGivenSum(sum);
 
-        view.printSign(view.SPACE_BETWEEN_REQUESTS);
+        view.printSign(SPACE_BETWEEN_REQUESTS);
     }
 }

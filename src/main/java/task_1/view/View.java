@@ -1,13 +1,15 @@
 package task_1.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class View {
-    public static final String DEPOSITS_SORTED_BY_RATE = "Deposits sorted by rate: ";
-    public static final String DEPOSITS_SORTED_BY_BANK = "Deposits sorted by bank: ";
-    public static final String DEPOSITS_TERMINABLE = "Deposits terminable: ";
-    public static final String DEPOSITS_WITH_REPLENISHMENT = "Deposits with replenishment: ";
-    public static final String DEPOSITS_FOR_SUM = "Deposits that match your sum: ";
-    public static final String REQUEST_SIGN = "-------";
-    public static final String SPACE_BETWEEN_REQUESTS = "\n";
+    static String REQUEST_BUNDLE_NAME = "request";
+    public static final ResourceBundle bundle =
+            ResourceBundle.getBundle(
+                    REQUEST_BUNDLE_NAME,
+                    new Locale("ua", "UA")); // Ukrainian
+//                    new Locale("en")); // English
 
     public void printMessage(String message){
         System.out.println(message);
@@ -15,5 +17,9 @@ public class View {
 
     public void printSign(String sign) {
         System.out.print(sign);
+    }
+
+    public void printRequest(String request) {
+        printMessage(bundle.getString(request));
     }
 }
