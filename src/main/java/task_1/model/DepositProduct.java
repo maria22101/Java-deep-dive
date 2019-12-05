@@ -2,6 +2,11 @@ package task_1.model;
 
 import task_1.model.entity.*;
 
+/**
+ * This enum is to store the Deposit class instances.
+ * Its private constructor to be used for generating a new constant.
+ * @author Maria Bilous
+ */
 public enum DepositProduct {
     DEPOSIT_TERMINABLE_PRIVAT(new DepositTerminable(5000, 0.12, 180, Bank.PRIVAT,
             30, 0.02)),

@@ -4,6 +4,9 @@ import task_1.model.Bank;
 
 import java.util.Objects;
 
+/**
+ * @author Maria Bilous
+ */
 public class DepositWithProgressiveRate extends DepositNonTerminable {
     private double progressRate;
 
@@ -13,6 +16,13 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
         this.progressRate = progressRate;
     }
 
+    /**
+     *This method calculates income for an instance of this class as follows:
+     * first - the related super class method applied;
+     * second - additional income from the progressRate calculated assuming
+     * an additional progressRate cumulatively growing every 30 days     *
+     * @return double value - income for an instance of this class
+     */
     @Override
     public double calculateIncome() {
         double initialRateIncome = super.calculateIncome();

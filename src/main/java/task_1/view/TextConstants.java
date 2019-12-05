@@ -1,7 +1,7 @@
 package task_1.view;
 
 /**
- *Created by Bilous M. 05.12.2019
+ * @author Maria Bilous
  */
 public interface TextConstants {
     String DEPOSITS_SORTED_BY_RATE = "deposits.sorted.by.rate";

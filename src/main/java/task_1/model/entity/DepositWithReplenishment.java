@@ -4,6 +4,9 @@ import task_1.model.Bank;
 
 import java.util.Objects;
 
+/**
+ * @author Maria Bilous
+ */
 public class DepositWithReplenishment extends DepositNonTerminable{
     private int daysLeftTillEndOfPeriod;
     private double replenishmentSum;
@@ -20,6 +23,13 @@ public class DepositWithReplenishment extends DepositNonTerminable{
         this.replenishmentSum = replenishmentSum;
     }
 
+    /**
+     *This method calculates income for an instance of this class as follows:
+     * first - the related super class method applied;
+     * second - additional income from the replenishing sum considering
+     * days left till the deposit period end.     *
+     * @return double value - income for an instance of this class
+     */
     @Override
     public double calculateIncome() {
         double initialSumIncome = super.calculateIncome();

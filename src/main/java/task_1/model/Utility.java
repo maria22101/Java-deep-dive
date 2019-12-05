@@ -9,6 +9,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class is for storage, sorting, filtering
+ * and displaying Deposit class instances
+ * @author Maria Bilous
+ */
 public class Utility {
     private List<Deposit> deposits;
 
@@ -68,6 +73,10 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * @return List of the Deposits with field sum less than the
+     * parameter sum
+     */
     public List<Deposit> depositsForTheGivenSum(double sum) {
         return deposits
                 .stream()

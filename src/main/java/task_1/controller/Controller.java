@@ -6,6 +6,13 @@ import task_1.view.View;
 
 import static task_1.view.TextConstants.*;
 
+/**
+ * This class is for adding, removing, sorting, filtering
+ * and displaying Deposit class instances using
+ * functionality implemented in Utility class
+ * @author Maria Bilous
+ * @see task_1.model.Utility
+ */
 public class Controller {
     private Utility utility;
     private View view;

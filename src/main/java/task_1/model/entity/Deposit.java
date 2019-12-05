@@ -4,6 +4,9 @@ import task_1.model.Bank;
 
 import java.util.Objects;
 
+/**
+ * @author Maria Bilous
+ */
 public abstract class Deposit {
     private double sum;
     private double interestRate;

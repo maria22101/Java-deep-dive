@@ -4,6 +4,9 @@ import task_1.model.Bank;
 
 import java.util.Objects;
 
+/**
+ * @author Maria Bilous
+ */
 public class DepositTerminable extends Deposit {
     private int daysPassedBeforeTermination;
     private double interestRateForTermination;
