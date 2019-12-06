@@ -3,8 +3,7 @@ package HW_4_notebook.version_1.view;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import static HW_4_notebook.version_1.view.TextConstant.INPUT_STRING_DATA;
-import static HW_4_notebook.version_1.view.TextConstant.WRONG_INPUT_DATA;
+import static HW_4_notebook.version_1.view.TextConstant.*;
 
 
 /**
@@ -35,14 +34,14 @@ public class View {
 
     public void printStringInput(String message) {
         printMessage(concatenatedString(
-                bundle.getString(INPUT_STRING_DATA),
+                bundle.getString(INPUT_STRING_DATA), SPACE_SIGN,
                 bundle.getString(message)));
     }
 
     public void printWrongStringInput(String message) {
         printMessage(concatenatedString(
-                bundle.getString(WRONG_INPUT_DATA),
-                bundle.getString(INPUT_STRING_DATA),
+                bundle.getString(WRONG_INPUT_DATA), SPACE_SIGN,
+                bundle.getString(INPUT_STRING_DATA), SPACE_SIGN,
                 bundle.getString(message)));
     }
 }
