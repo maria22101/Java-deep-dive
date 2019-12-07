@@ -1,5 +1,8 @@
 package HW_4_notebook.version_1.view;
 
+import HW_4_notebook.version_1.controller.NoteBook;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -16,8 +19,8 @@ public class View {
     public static final ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
-                    new Locale("ua", "UA")); // Ukrainian
-//                    new Locale("en")); // English
+//                    new Locale("ua", "UA")); // Ukrainian
+                    new Locale("en")); // English
 
     // Utilities methods
     public void printMessage(String str) {

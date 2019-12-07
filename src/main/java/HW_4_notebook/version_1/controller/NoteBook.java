@@ -111,8 +111,10 @@ public class NoteBook {
         this.dateOfNoteLastModification = utilityController
                 .inputStringValueWithScanner(DATE_OF_NOTE_LAST_MODIFICATION, REGEX_DATE_OF_NOTE_LAST_MODIFICATION);
 
-        this.fullName = view.concatenatedString(lastName, "", String.valueOf(firstName.charAt(0)), ".");
+        this.fullName = view.concatenatedString(lastName, " ",
+                String.valueOf(firstName.charAt(0)), ".");
 
-        this.address = view.concatenatedString(zipCode, "", city, "", street, "", houseNumber, "", appartmentNumber);
+        this.address = view.concatenatedString(zipCode, " ", city, ", ",
+                street, " ", houseNumber, "" , appartmentNumber);
     }
 }

@@ -7,8 +7,6 @@ public interface TextConstant {
     String INPUT_STRING_DATA = "input.string.data";
     String FIRST_NAME = "input.first.name.data";
     String WRONG_INPUT_DATA = "input.wrong.data";
-//    String LOGIN_DATA = "input.login.data";
-
     String LAST_NAME = "input.last.name.data";
     String FATHER_NAME = "input.father.name.data";
     String NICK_NAME = "input.nick.name.data";
@@ -26,6 +24,5 @@ public interface TextConstant {
     String APPARTMENT_NUMBER = "input.appartment.number.data";
     String DATE_OF_NOTE_CREATION = "input.date.note.creation.data";
     String DATE_OF_NOTE_LAST_MODIFICATION = "input.date.note.modification.data";
-
     String SPACE_SIGN = " ";
 }
