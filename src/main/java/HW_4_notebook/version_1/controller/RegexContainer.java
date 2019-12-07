@@ -12,9 +12,10 @@ public interface RegexContainer {
 
     String REGEX_NICK_NAME = "[A-Za-z0-9]+";
     String REGEX_COMMENT = ".{0,100}";
-    String REGEX_HOME_PHONE = "^\\+\\d{3}-?\\d{2,3}-?\\d{3}-?\\d{2}-?\\d{2}$";
-    String REGEX_CELL_PHONE1 = "^\\+\\d{3}-?\\d{2,3}-?\\d{3}-?\\d{2}-?\\d{2}$";
-    String REGEX_CELL_PHONE2 = "^\\+\\d{3}-?\\d{2,3}-?\\d{3}-?\\d{2}-?\\d{2}$";
+    String REGEX_GROUPS = "(((FITNESS)|(COOKING)|(READING)|(MUSIC)|(DANCING))[(, ) ]*){1,5}";
+    String REGEX_HOME_PHONE = "^\\+\\d{3}[- ]?\\d{2,3}[- ]?\\d{3}[- ]?\\d{2}[- ]?\\d{2}$";
+    String REGEX_CELL_PHONE1 = "^\\+\\d{3}[- ]?\\d{2,3}[- ]?\\d{3}[- ]?\\d{2}[- ]?\\d{2}$";
+    String REGEX_CELL_PHONE2 = "^\\+\\d{3}[- ]?\\d{2,3}[- ]?\\d{3}[- ]?\\d{2}[- ]?\\d{2}$";
     String REGEX_EMAIL = "^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$";
     String REGEX_SKYPE = "^[a-z][-_a-z0-9]{5,31}$";
 

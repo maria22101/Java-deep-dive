@@ -1,9 +1,7 @@
 package HW_4_notebook.version_1.controller;
 
-import HW_4_notebook.version_1.HobbyGroups;
 import HW_4_notebook.version_1.view.View;
 
-import java.util.List;
 import java.util.Scanner;
 
 import static HW_4_notebook.version_1.controller.RegexContainer.*;
@@ -22,7 +20,7 @@ public class NoteBook {
     private String fullName;
     private String nickName;
     private String comment;
-    private List<HobbyGroups> hobbyGroups;
+    private String hobbyGroups;
     private String homePhone;
     private String cellPhone1;
     private String cellPhone2;
@@ -65,6 +63,9 @@ public class NoteBook {
         this.comment = utilityController
                 .inputStringValueWithScanner(COMMENT, REGEX_COMMENT);
 
+        this.hobbyGroups = utilityController
+                .inputStringValueWithScanner(GROUPS, REGEX_GROUPS);
+
         this.homePhone = utilityController
                 .inputStringValueWithScanner(HOME_PHONE, REGEX_HOME_PHONE);
 
@@ -82,17 +83,18 @@ public class NoteBook {
 
         regexStr = (String.valueOf(View.bundle.getLocale()).equals("ua")
                 ? REGEX_ZIPCODE_UKR : REGEX_ZIPCODE_ENG);
-
         this.zipCode = utilityController
                 .inputStringValueWithScanner(ZIP_CODE, regexStr);
 
         regexStr = (String.valueOf(View.bundle.getLocale()).equals("ua")
                 ? REGEX_CITY_UKR : REGEX_CITY_ENG);
-        this.city = utilityController.inputStringValueWithScanner(CITY, regexStr);
+        this.city = utilityController.
+                inputStringValueWithScanner(CITY, regexStr);
 
         regexStr = (String.valueOf(View.bundle.getLocale()).equals("ua")
                 ? REGEX_STREET_UKR : REGEX_STREET_ENG);
-        this.street = utilityController.inputStringValueWithScanner(STREET, regexStr);
+        this.street = utilityController.
+                inputStringValueWithScanner(STREET, regexStr);
 
         regexStr = (String.valueOf(View.bundle.getLocale()).equals("ua")
                 ? REGEX_HOUSE_NUMBER_UKR : REGEX_HOUSE_NUMBER_ENG);
@@ -108,5 +110,9 @@ public class NoteBook {
 
         this.dateOfNoteLastModification = utilityController
                 .inputStringValueWithScanner(DATE_OF_NOTE_LAST_MODIFICATION, REGEX_DATE_OF_NOTE_LAST_MODIFICATION);
+
+        this.fullName = view.concatenatedString(lastName, "", String.valueOf(firstName.charAt(0)), ".");
+
+        this.address = view.concatenatedString(zipCode, "", city, "", street, "", houseNumber, "", appartmentNumber);
     }
 }

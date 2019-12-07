@@ -13,7 +13,7 @@ public interface TextConstant {
     String FATHER_NAME = "input.father.name.data";
     String NICK_NAME = "input.nick.name.data";
     String COMMENT = "input.comment.data";
-    String GROUPS = "input.groups.data";
+    String GROUPS = "input.group.data";
     String HOME_PHONE = "input.home.phone.data";
     String CELL_PHONE_1 = "input.cell.phone.main.data";
     String CELL_PHONE_2 = "input.cell.phone.additional.data";
@@ -24,10 +24,6 @@ public interface TextConstant {
     String STREET = "input.street.data";
     String HOUSE_NUMBER = "input.house.number.data";
     String APPARTMENT_NUMBER = "input.appartment.number.data";
-
-    String ADDRESS = "Address (in format: \"Postal code\", \"City\"" +
-            ", \"Street\", \"House number\", \"Appartment number\"";
-
     String DATE_OF_NOTE_CREATION = "input.date.note.creation.data";
     String DATE_OF_NOTE_LAST_MODIFICATION = "input.date.note.modification.data";
 
