@@ -33,45 +33,35 @@ public class Controller {
     public void displayDepositsSortedByRate() {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_SORTED_BY_RATE);
-
-//        utility.displayDepositsSortedByRate();
-
-        view.printSign(SPACE_BETWEEN_REQUESTS);
+        view.displayBasicDepositFields(utility.depositsSortedByRate(utility.getDeposits()));
+        view.printSign(NEW_LINE_SIGN);
     }
 
     public void displayDepositsSortedByBanks() {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_SORTED_BY_BANK);
-
-//        utility.displayDepositsSortedByBanks();
-
-        view.printSign(SPACE_BETWEEN_REQUESTS);
+        view.displayBasicDepositFields(utility.depositsSortedByBanks(utility.getDeposits()));
+        view.printSign(NEW_LINE_SIGN);
     }
 
     public void displayDepositsTerminable() {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_TERMINABLE);
-
-//        utility.displayDepositsTerminable();
-
-        view.printSign(SPACE_BETWEEN_REQUESTS);
+        view.displayTerminableDeposits(utility.depositsTerminable(utility.getDeposits()));
+        view.printSign(NEW_LINE_SIGN);
     }
 
     public void displayDepositsWithReplenishment() {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_WITH_REPLENISHMENT);
-
-//        utility.displayDepositsWithReplenishment();
-
-        view.printSign(SPACE_BETWEEN_REQUESTS);
+        view.displayReplenishedDeposits(utility.depositsWithReplenishment(utility.getDeposits()));
+        view.printSign(NEW_LINE_SIGN);
     }
 
     public void displayDepositsForTheGivenSum(double sum) {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_FOR_SUM);
-
-//        utility.displayDepositsForTheGivenSum(sum);
-
-        view.printSign(SPACE_BETWEEN_REQUESTS);
+        view.displayBasicDepositFields(utility.depositsForTheGivenSum(sum));
+        view.printSign(NEW_LINE_SIGN);
     }
 }

@@ -9,7 +9,6 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -34,6 +33,10 @@ public class Utility {
         if (deposits.contains(d)) {
             deposits.remove(d);
         }
+    }
+
+    public List<Deposit> getDeposits() {
+        return deposits;
     }
 
     public List<Deposit> depositsSortedByRate(List<Deposit> inputList) {

@@ -24,8 +24,5 @@ public class Main {
         controller.displayDepositsTerminable();
         controller.displayDepositsWithReplenishment();
         controller.displayDepositsForTheGivenSum(10000);
-
-        controller.remove(DepositProduct.DEPOSIT_TERMINABLE_EXIM.getDeposit());
-        controller.displayDepositsSortedByBanks();
     }
 }
