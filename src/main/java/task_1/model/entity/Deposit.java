@@ -3,6 +3,7 @@ package task_1.model.entity;
 import task_1.model.Bank;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * @author Maria Bilous
@@ -52,5 +53,21 @@ public abstract class Deposit {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Deposit)) return false;
+        Deposit deposit = (Deposit) o;
+        return periodInDays == deposit.periodInDays &&
+                sum.equals(deposit.sum) &&
+                interestRate.equals(deposit.interestRate) &&
+                bank == deposit.bank;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sum, interestRate, periodInDays, bank);
     }
 }

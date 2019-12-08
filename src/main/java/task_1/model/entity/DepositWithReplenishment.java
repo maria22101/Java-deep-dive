@@ -58,4 +58,19 @@ public class DepositWithReplenishment extends DepositNonTerminable{
     public void setReplenishmentSum(BigDecimal replenishmentSum) {
         this.replenishmentSum = replenishmentSum;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DepositWithReplenishment)) return false;
+        if (!super.equals(o)) return false;
+        DepositWithReplenishment that = (DepositWithReplenishment) o;
+        return daysLeftTillEndOfPeriod == that.daysLeftTillEndOfPeriod &&
+                replenishmentSum.equals(that.replenishmentSum);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), daysLeftTillEndOfPeriod, replenishmentSum);
+    }
 }

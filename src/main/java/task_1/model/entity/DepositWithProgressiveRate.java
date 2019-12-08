@@ -32,7 +32,7 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
         int progressPeriods = getPeriodInDays() / 30;
         for (int i = 1; i <= progressPeriods; i++) {
             progressRateMonthly += progressRate.doubleValue();
-            progressRateIncome += getSum().doubleValue() * progressRateMonthly / 365 * (i * 30);
+            progressRateIncome += getSum().doubleValue() * progressRateMonthly / 365 * 30;
         }
 
         BigDecimal initialRateIncome = super.calculateIncome();
@@ -49,5 +49,19 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
 
     public void setProgressRate(BigDecimal progressRate) {
         this.progressRate = progressRate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DepositWithProgressiveRate)) return false;
+        if (!super.equals(o)) return false;
+        DepositWithProgressiveRate that = (DepositWithProgressiveRate) o;
+        return progressRate.equals(that.progressRate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), progressRate);
     }
 }

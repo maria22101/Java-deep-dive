@@ -43,4 +43,19 @@ public class DepositTerminable extends Deposit {
     public void setInterestRateForTermination(BigDecimal interestRateForTermination) {
         this.interestRateForTermination = interestRateForTermination;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DepositTerminable)) return false;
+        if (!super.equals(o)) return false;
+        DepositTerminable that = (DepositTerminable) o;
+        return daysPassedBeforeTermination == that.daysPassedBeforeTermination &&
+                interestRateForTermination.equals(that.interestRateForTermination);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), daysPassedBeforeTermination, interestRateForTermination);
+    }
 }

@@ -34,7 +34,7 @@ public class Controller {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_SORTED_BY_RATE);
 
-        utility.displayDepositsSortedByRate();
+//        utility.displayDepositsSortedByRate();
 
         view.printSign(SPACE_BETWEEN_REQUESTS);
     }
@@ -43,7 +43,7 @@ public class Controller {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_SORTED_BY_BANK);
 
-        utility.displayDepositsSortedByBanks();
+//        utility.displayDepositsSortedByBanks();
 
         view.printSign(SPACE_BETWEEN_REQUESTS);
     }
@@ -52,7 +52,7 @@ public class Controller {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_TERMINABLE);
 
-        utility.displayDepositsTerminable();
+//        utility.displayDepositsTerminable();
 
         view.printSign(SPACE_BETWEEN_REQUESTS);
     }
@@ -61,7 +61,7 @@ public class Controller {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_WITH_REPLENISHMENT);
 
-        utility.displayDepositsWithReplenishment();
+//        utility.displayDepositsWithReplenishment();
 
         view.printSign(SPACE_BETWEEN_REQUESTS);
     }
@@ -70,7 +70,7 @@ public class Controller {
         view.printSign(REQUEST_SIGN);
         view.printRequest(DEPOSITS_FOR_SUM);
 
-        utility.displayDepositsForTheGivenSum(sum);
+//        utility.displayDepositsForTheGivenSum(sum);
 
         view.printSign(SPACE_BETWEEN_REQUESTS);
     }
