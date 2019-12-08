@@ -2,16 +2,18 @@ package task_1.model.entity;
 
 import task_1.model.Bank;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 /**
  * @author Maria Bilous
  */
 public class DepositWithProgressiveRate extends DepositNonTerminable {
-    private double progressRate;
+    private BigDecimal progressRate;
 
-    public DepositWithProgressiveRate(double sum, double interestRate, int periodInDays,
-                                      Bank bank, double progressRate) {
+    public DepositWithProgressiveRate(BigDecimal sum, BigDecimal interestRate, int periodInDays,
+                                      Bank bank, BigDecimal progressRate) {
         super(sum, interestRate, periodInDays, bank);
         this.progressRate = progressRate;
     }
@@ -24,50 +26,28 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
      * @return double value - income for an instance of this class
      */
     @Override
-    public double calculateIncome() {
-        double initialRateIncome = super.calculateIncome();
+    public BigDecimal calculateIncome() {
         double progressRateIncome = 0;
         double progressRateMonthly = 0;
-        int progressPeriods = (int) (getPeriodInDays() % 30);
-
+        int progressPeriods = getPeriodInDays() / 30;
         for (int i = 1; i <= progressPeriods; i++) {
-            progressRateMonthly += progressRate;
-            progressRateIncome += getSum() * progressRateMonthly / 365 * i;
+            progressRateMonthly += progressRate.doubleValue();
+            progressRateIncome += getSum().doubleValue() * progressRateMonthly / 365 * (i * 30);
         }
 
-        return initialRateIncome + progressRateIncome;
+        BigDecimal initialRateIncome = super.calculateIncome();
+        BigDecimal progressRateIncomeBigDcml = new BigDecimal(progressRateIncome);
+
+        return initialRateIncome
+                .add(progressRateIncomeBigDcml)
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
-    public double getProgressRate() {
+    public BigDecimal getProgressRate() {
         return progressRate;
     }
 
-    public void setProgressRate(double progressRate) {
+    public void setProgressRate(BigDecimal progressRate) {
         this.progressRate = progressRate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof DepositWithProgressiveRate)) return false;
-        if (!super.equals(o)) return false;
-        DepositWithProgressiveRate that = (DepositWithProgressiveRate) o;
-        return Double.compare(that.progressRate, progressRate) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), progressRate);
-    }
-
-    @Override
-    public String toString() {
-        return "DepositWithProgressiveRate{" +
-                "sum=" + getSum() +
-                ", interestRate=" + getInterestRate() +
-                ", periodInDays=" + getPeriodInDays() +
-                ", bank=" + getBank() +
-                ", progressRate=" + progressRate +
-                '}';
     }
 }

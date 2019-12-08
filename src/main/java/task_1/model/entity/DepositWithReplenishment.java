@@ -2,6 +2,8 @@ package task_1.model.entity;
 
 import task_1.model.Bank;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 /**
@@ -9,15 +11,15 @@ import java.util.Objects;
  */
 public class DepositWithReplenishment extends DepositNonTerminable{
     private int daysLeftTillEndOfPeriod;
-    private double replenishmentSum;
+    private BigDecimal replenishmentSum;
 
-    public DepositWithReplenishment(double sum, double interestRate, int periodInDays,
+    public DepositWithReplenishment(BigDecimal sum, BigDecimal interestRate, int periodInDays,
                                     Bank bank) {
         super(sum, interestRate, periodInDays, bank);
     }
 
-    public DepositWithReplenishment(double sum, double interestRate, int periodInDays,
-                                    Bank bank, int daysLeftTillEndOfPeriod, double replenishmentSum) {
+    public DepositWithReplenishment(BigDecimal sum, BigDecimal interestRate, int periodInDays,
+                                    Bank bank, int daysLeftTillEndOfPeriod, BigDecimal replenishmentSum) {
         super(sum, interestRate, periodInDays, bank);
         this.daysLeftTillEndOfPeriod = daysLeftTillEndOfPeriod;
         this.replenishmentSum = replenishmentSum;
@@ -31,11 +33,14 @@ public class DepositWithReplenishment extends DepositNonTerminable{
      * @return double value - income for an instance of this class
      */
     @Override
-    public double calculateIncome() {
-        double initialSumIncome = super.calculateIncome();
-        double replenishmentIncome = replenishmentSum * getInterestRate() / 365
-                * getDaysLeftTillEndOfPeriod();
-        return initialSumIncome + replenishmentIncome;
+    public BigDecimal calculateIncome() {
+        BigDecimal initialSumIncome = super.calculateIncome();
+        BigDecimal replenishmentIncome = replenishmentSum
+                .multiply(getInterestRate())
+                .divide(BigDecimal.valueOf(365), 2, RoundingMode.HALF_UP)
+                .multiply(BigDecimal.valueOf(daysLeftTillEndOfPeriod))
+                .setScale(2, RoundingMode.HALF_UP);
+        return initialSumIncome.add(replenishmentIncome);
     }
 
     public int getDaysLeftTillEndOfPeriod() {
@@ -46,38 +51,11 @@ public class DepositWithReplenishment extends DepositNonTerminable{
         this.daysLeftTillEndOfPeriod = daysLeftTillEndOfPeriod;
     }
 
-    public double getReplenishmentSum() {
+    public BigDecimal getReplenishmentSum() {
         return replenishmentSum;
     }
 
-    public void setReplenishmentSum(double replenishmentSum) {
+    public void setReplenishmentSum(BigDecimal replenishmentSum) {
         this.replenishmentSum = replenishmentSum;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof DepositWithReplenishment)) return false;
-        if (!super.equals(o)) return false;
-        DepositWithReplenishment that = (DepositWithReplenishment) o;
-        return daysLeftTillEndOfPeriod == that.daysLeftTillEndOfPeriod &&
-                Double.compare(that.replenishmentSum, replenishmentSum) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), daysLeftTillEndOfPeriod, replenishmentSum);
-    }
-
-    @Override
-    public String toString() {
-        return "DepositWithReplenishment{" +
-                "sum=" + getSum() +
-                ", interestRate=" + getInterestRate() +
-                ", periodInDays=" + getPeriodInDays() +
-                ", bank=" + getBank() +
-                ", daysLeftTillEndOfPeriod=" + daysLeftTillEndOfPeriod +
-                ", replenishmentSum=" + replenishmentSum +
-                '}';
     }
 }

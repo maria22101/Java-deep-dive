@@ -2,39 +2,39 @@ package task_1.model.entity;
 
 import task_1.model.Bank;
 
-import java.util.Objects;
+import java.math.BigDecimal;
 
 /**
  * @author Maria Bilous
  */
 public abstract class Deposit {
-    private double sum;
-    private double interestRate;
+    private BigDecimal sum;
+    private BigDecimal interestRate;
     private int periodInDays;
     private Bank bank;
 
-    public Deposit(double sum, double interestRate, int periodInDays, Bank bank) {
+    public Deposit(BigDecimal sum, BigDecimal interestRate, int periodInDays, Bank bank) {
         this.sum = sum;
         this.interestRate = interestRate;
         this.periodInDays = periodInDays;
         this.bank = bank;
     }
 
-    public abstract double calculateIncome();
+    public abstract BigDecimal calculateIncome();
 
-    public double getSum() {
+    public BigDecimal getSum() {
         return sum;
     }
 
-    public void setSum(double sum) {
+    public void setSum(BigDecimal sum) {
         this.sum = sum;
     }
 
-    public double getInterestRate() {
+    public BigDecimal getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
+    public void setInterestRate(BigDecimal interestRate) {
         this.interestRate = interestRate;
     }
 
@@ -52,31 +52,5 @@ public abstract class Deposit {
 
     public void setBank(Bank bank) {
         this.bank = bank;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Deposit)) return false;
-        Deposit deposit = (Deposit) o;
-        return Double.compare(deposit.sum, sum) == 0 &&
-                Double.compare(deposit.interestRate, interestRate) == 0 &&
-                periodInDays == deposit.periodInDays &&
-                bank == deposit.bank;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(sum, interestRate, periodInDays, bank);
-    }
-
-    @Override
-    public String toString() {
-        return "Deposit{" +
-                "sum=" + sum +
-                ", interestRate=" + interestRate +
-                ", periodInDays=" + periodInDays +
-                ", bank=" + bank +
-                '}';
     }
 }
