@@ -1,5 +1,6 @@
 package HW_4_notebook.version_1.controller;
 
+import HW_4_notebook.version_1.model.CheckNickNameException;
 import HW_4_notebook.version_1.model.NoteBooksStorage;
 import HW_4_notebook.version_1.view.View;
 
@@ -21,6 +22,15 @@ public class Controller {
         Scanner sc = new Scanner(System.in);
         NoteBook noteBook = new NoteBook(view, sc);
         noteBook.inputNote();
-        noteBooksStorage.add(noteBook);
+
+        while (true) {
+            try {
+                noteBooksStorage.add(noteBook);
+                break;
+            } catch (CheckNickNameException e) {
+                view.printMessage(e.toString());
+            }
+            noteBook.inputNote();
+        }
     }
 }

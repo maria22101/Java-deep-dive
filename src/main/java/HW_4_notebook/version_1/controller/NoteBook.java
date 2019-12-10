@@ -115,6 +115,10 @@ public class NoteBook {
                 String.valueOf(firstName.charAt(0)), ".");
 
         this.address = view.concatenatedString(zipCode, " ", city, ", ",
-                street, " ", houseNumber, "" , appartmentNumber);
+                street, " ", houseNumber, ", " , appartmentNumber);
+    }
+
+    public String getNickName() {
+        return nickName;
     }
 }

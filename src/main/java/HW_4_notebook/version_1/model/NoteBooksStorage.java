@@ -12,8 +12,17 @@ public class NoteBooksStorage {
         noteBooks = new ArrayList<>();
     }
 
-    public void add(NoteBook nb) {
-        noteBooks.add(nb);
+    public void add(NoteBook nb) throws CheckNickNameException {
+        if (noteBooks.isEmpty()) {
+            noteBooks.add(nb);
+        } else {
+            for (NoteBook noteBook : noteBooks) {
+                if (noteBook.getNickName().equals(nb.getNickName())) {
+                    throw new CheckNickNameException(noteBook);
+                }
+            }
+            noteBooks.add(nb);
+        }
     }
 
     public List<NoteBook> getNoteBooks() {
