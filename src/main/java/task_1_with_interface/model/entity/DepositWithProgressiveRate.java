@@ -7,7 +7,12 @@ import java.math.RoundingMode;
 import java.util.Objects;
 
 /**
+ * This class is for creating DepositNonTerminable instances that imply the super class
+ * interest rate increased cumulatively for every 30 days of holding the sum in the bank.
+ * The progressRate instance variable and the overridden calculateIncome() method
+ * represent this functionality.
  * @author Maria Bilous
+ * @see DepositNonTerminable
  */
 public class DepositWithProgressiveRate extends DepositNonTerminable {
     private BigDecimal progressRate;
@@ -20,8 +25,8 @@ public class DepositWithProgressiveRate extends DepositNonTerminable {
 
     /**
      *This method calculates income for this class instance as follows:
-     * first - the related super class method applied;
-     * second - additional income calculated assuming progressRate
+     * 1/ the related super class method applied;
+     * 2/ additional income calculated assuming the progressRate
      * cumulative increase every 30 days.
      * @return double value - income for an instance of this class
      */

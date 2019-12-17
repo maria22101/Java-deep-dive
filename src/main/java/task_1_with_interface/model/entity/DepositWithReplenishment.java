@@ -7,7 +7,11 @@ import java.math.RoundingMode;
 import java.util.Objects;
 
 /**
+ * This class is for creating DepositNonTerminable instances that imply
+ * deposit replenishment. The corresponding instance variables and
+ * the overridden calculateIncome() method represent this functionality.
  * @author Maria Bilous
+ * @see DepositNonTerminable
  */
 public class DepositWithReplenishment extends DepositNonTerminable {
     private int daysLeftTillEndOfPeriod;
