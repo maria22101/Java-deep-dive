@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  *
  * @author Maria Bilous
  */
-public enum DepositProducts {
+public enum DepositOffers {
     DEPOSIT_TERMINABLE_PRIVAT(new DepositTerminable(new BigDecimal(5000), new BigDecimal(0.12),
             180, Bank.PRIVAT, 30, new BigDecimal(0.02))),
 
@@ -44,7 +44,7 @@ public enum DepositProducts {
 
     private Deposit deposit;
 
-    private DepositProducts(Deposit deposit) {
+    private DepositOffers(Deposit deposit) {
         this.deposit = deposit;
     }
 
