@@ -30,7 +30,5 @@ public class StreamEx1 {
                 .filter(x -> x % 2 == 0)
                 .count();
         System.out.println(count);
-
-
     }
 }
