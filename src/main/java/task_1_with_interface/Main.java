@@ -19,5 +19,6 @@ public class Main {
         controller.displayDepositsSortedByBanks();
         controller.displayDepositsSortedByRate();
         controller.displayDepositsWithReplenishment();
+        controller.displayDepositsTerminable();
     }
 }

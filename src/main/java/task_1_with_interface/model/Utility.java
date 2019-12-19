@@ -9,7 +9,9 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * This class is for storage, sorting, filtering
@@ -53,17 +55,31 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsTerminable(List<Deposit> inputList) {
+    public List<Deposit> depositsTerminableOld(List<Deposit> inputList) {
         return inputList
                 .stream()
                 .filter((d) -> d instanceof DepositTerminable)
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsWithReplenishment(List<Deposit> inputList) {
+    public List<Deposit> depositsTerminable(List<Deposit> inputList) {
+        return inputList
+                .stream()
+                .map(d -> (DepositTerminable) d)
+                .collect(Collectors.toList());
+    }
+
+    public List<Deposit> depositsWithReplenishmentOld(List<Deposit> inputList) {
         return inputList
                 .stream()
                 .filter((d) -> d instanceof DepositWithReplenishment)
+                .collect(Collectors.toList());
+    }
+
+    public List<Deposit> depositsWithReplenishment(List<Deposit> inputList) {
+        return inputList
+                .stream()
+                .map(d -> (DepositWithReplenishment) d)
                 .collect(Collectors.toList());
     }
 
