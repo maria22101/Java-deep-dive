@@ -6,9 +6,7 @@ import task_1_with_interface.model.entity.DepositWithReplenishment;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -55,31 +53,19 @@ public class Utility {
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsTerminableOld(List<Deposit> inputList) {
+    public List<DepositTerminable> depositsTerminable(List<Deposit> inputList) {
         return inputList
                 .stream()
-                .filter((d) -> d instanceof DepositTerminable)
+                .filter(DepositTerminable.class::isInstance)
+                .map(DepositTerminable.class::cast)
                 .collect(Collectors.toList());
     }
 
-    public List<Deposit> depositsTerminable(List<Deposit> inputList) {
+    public List<DepositWithReplenishment> depositsWithReplenishment(List<Deposit> inputList) {
         return inputList
                 .stream()
-                .map(d -> (DepositTerminable) d)
-                .collect(Collectors.toList());
-    }
-
-    public List<Deposit> depositsWithReplenishmentOld(List<Deposit> inputList) {
-        return inputList
-                .stream()
-                .filter((d) -> d instanceof DepositWithReplenishment)
-                .collect(Collectors.toList());
-    }
-
-    public List<Deposit> depositsWithReplenishment(List<Deposit> inputList) {
-        return inputList
-                .stream()
-                .map(d -> (DepositWithReplenishment) d)
+                .filter(DepositWithReplenishment.class::isInstance)
+                .map(DepositWithReplenishment.class::cast)
                 .collect(Collectors.toList());
     }
 

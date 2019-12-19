@@ -62,16 +62,8 @@ public class View {
         });
     }
 
-    public void displayTerminableDeposits(List<Deposit> list) {
-        List<DepositTerminable> requestedList = list.stream()
-                .map(new Function<Deposit, DepositTerminable>() {
-                    @Override
-                    public DepositTerminable apply(Deposit deposit) {
-                        return (DepositTerminable) deposit;
-                    }
-                }).collect(Collectors.toList());
-
-        requestedList.forEach(d -> {
+    public void displayTerminableDeposits(List<DepositTerminable> list) {
+        list.forEach(d -> {
             String terminableDepositFields = concatenatedString(
                     basicDepositFields(d), SPACE_SIGN,
                     bundle.getString(DAYS_PASSED_BEFORE_TERMINATION), EQUALS_SIGN,
@@ -84,16 +76,8 @@ public class View {
         });
     }
 
-    public void displayReplenishedDeposits(List<Deposit> list) {
-        List<DepositWithReplenishment> requestedList = list.stream()
-                .map(new Function<Deposit, DepositWithReplenishment>() {
-                    @Override
-                    public DepositWithReplenishment apply(Deposit deposit) {
-                        return (DepositWithReplenishment) deposit;
-                    }
-                }).collect(Collectors.toList());
-
-        requestedList.forEach(d -> {
+    public void displayReplenishedDeposits(List<DepositWithReplenishment> list) {
+        list.forEach(d -> {
             String replenishDepositFields = concatenatedString(
                     basicDepositFields(d), SPACE_SIGN,
                     bundle.getString(DAYS_LEFT_TILL_PERIOD_END), EQUALS_SIGN,
