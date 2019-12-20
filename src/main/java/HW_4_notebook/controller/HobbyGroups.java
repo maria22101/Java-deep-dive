@@ -1,4 +1,4 @@
-package HW_4_notebook.version_1.controller;
+package HW_4_notebook.controller;
 
 import java.util.Arrays;
 

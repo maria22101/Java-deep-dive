@@ -1,4 +1,4 @@
-package HW_4_notebook.version_1.view;
+package HW_4_notebook.view;
 
 /**
  *Created by Bilous M. 05.12.2019

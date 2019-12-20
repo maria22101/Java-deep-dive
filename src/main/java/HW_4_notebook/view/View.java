@@ -1,12 +1,7 @@
-package HW_4_notebook.version_1.view;
+package HW_4_notebook.view;
 
-import HW_4_notebook.version_1.controller.NoteBook;
-
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import static HW_4_notebook.version_1.view.TextConstant.*;
 
 
 /**
@@ -37,14 +32,14 @@ public class View {
 
     public void printStringInput(String message) {
         printMessage(concatenatedString(
-                bundle.getString(INPUT_STRING_DATA), SPACE_SIGN,
+                bundle.getString(TextConstant.INPUT_STRING_DATA), TextConstant.SPACE_SIGN,
                 bundle.getString(message)));
     }
 
     public void printWrongStringInput(String message) {
         printMessage(concatenatedString(
-                bundle.getString(WRONG_INPUT_DATA), SPACE_SIGN,
-                bundle.getString(INPUT_STRING_DATA), SPACE_SIGN,
+                bundle.getString(TextConstant.WRONG_INPUT_DATA), TextConstant.SPACE_SIGN,
+                bundle.getString(TextConstant.INPUT_STRING_DATA), TextConstant.SPACE_SIGN,
                 bundle.getString(message)));
     }
 }

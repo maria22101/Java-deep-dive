@@ -1,6 +1,6 @@
-package HW_4_notebook.version_1.controller;
+package HW_4_notebook.controller;
 
-import HW_4_notebook.version_1.view.View;
+import HW_4_notebook.view.View;
 
 import java.util.Scanner;
 

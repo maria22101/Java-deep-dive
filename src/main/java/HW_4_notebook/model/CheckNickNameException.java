@@ -1,6 +1,6 @@
-package HW_4_notebook.version_1.model;
+package HW_4_notebook.model;
 
-import HW_4_notebook.version_1.controller.NoteBook;
+import HW_4_notebook.controller.NoteBook;
 
 public class CheckNickNameException extends Exception {
     private NoteBook noteBook;

@@ -1,4 +1,4 @@
-package HW_4_notebook.version_1.controller;
+package HW_4_notebook.controller;
 
 public interface RegexContainer {
     String REGEX_FIRST_NAME_UKR = "^[А-ЩЬЮЯҐІЇЄ][а-щьюяґіїє']{1,20}$";

@@ -1,11 +1,11 @@
-package HW_4_notebook.version_1.controller;
+package HW_4_notebook.controller;
 
-import HW_4_notebook.version_1.view.View;
+import HW_4_notebook.view.View;
 
 import java.util.Scanner;
 
-import static HW_4_notebook.version_1.controller.RegexContainer.*;
-import static HW_4_notebook.version_1.view.TextConstant.*;
+import static HW_4_notebook.controller.RegexContainer.*;
+import static HW_4_notebook.view.TextConstant.*;
 
 /**
  * Created by Bilous M. 05.12.2019

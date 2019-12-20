@@ -7,15 +7,6 @@ import java.util.Iterator;
  * Created by Bilous M. 18.12.2019
  */
 public class MyArrayList<E> implements Simple<E> {
-
-    public static void main(String[] args) {
-        Simple<String> strings = new MyArrayList<>();
-        strings.add("first");
-        strings.add("second");
-        strings.add("third");
-        strings.forEach(System.out::println);
-    }
-
     private E[] values;
 
     public MyArrayList() {

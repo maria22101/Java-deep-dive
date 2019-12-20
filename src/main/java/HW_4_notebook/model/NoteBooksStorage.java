@@ -1,6 +1,6 @@
-package HW_4_notebook.version_1.model;
+package HW_4_notebook.model;
 
-import HW_4_notebook.version_1.controller.NoteBook;
+import HW_4_notebook.controller.NoteBook;
 
 import java.util.ArrayList;
 import java.util.List;

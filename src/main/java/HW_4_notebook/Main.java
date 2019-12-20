@@ -1,8 +1,8 @@
-package HW_4_notebook.version_1;
+package HW_4_notebook;
 
-import HW_4_notebook.version_1.controller.Controller;
-import HW_4_notebook.version_1.model.NoteBooksStorage;
-import HW_4_notebook.version_1.view.View;
+import HW_4_notebook.controller.Controller;
+import HW_4_notebook.model.NoteBooksStorage;
+import HW_4_notebook.view.View;
 
 public class Main {
 
