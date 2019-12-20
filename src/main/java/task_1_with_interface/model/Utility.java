@@ -7,9 +7,7 @@ import task_1_with_interface.model.entity.DepositWithReplenishment;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * This class is for storage, sorting, filtering
