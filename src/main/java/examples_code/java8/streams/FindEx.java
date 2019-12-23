@@ -21,7 +21,7 @@ public class FindEx {
 
         // for parallel streams: using findFirst() returns exactly first value with the requested occurrence
         Optional<String> str3 = list
-                .stream()
+                .parallelStream()
                 .filter(s -> s.contains("is"))
                 .findFirst();
         System.out.println(str3);
