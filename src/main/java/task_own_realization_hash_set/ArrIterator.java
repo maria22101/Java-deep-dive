@@ -1,4 +1,4 @@
-package task_own_realization_collections;
+package task_own_realization_hash_set;
 
 import java.util.Iterator;
 
