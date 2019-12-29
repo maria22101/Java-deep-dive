@@ -5,9 +5,10 @@ import java.sql.*;
 public class JDBC_Ex {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "tigra263";
+    private static final String PASSWORD = "****";
 
     public static final String INSERT_NEW = "INSERT INTO users VALUES(?, ?, ?, ?)";
+    public static final String DELETE = "DELETE FROM users WHERE name=?";
 
     public static void main(String[] args) {
 
@@ -21,17 +22,21 @@ public class JDBC_Ex {
         // try-with-resources example
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
              Statement statement = connection.createStatement();
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW)
+             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW);
+             PreparedStatement preparedStatement2 = connection.prepareStatement(DELETE);
                 ) {
 
 //            statement.execute("DELETE FROM users WHERE id=7");
 //            statement.executeUpdate("UPDATE users SET name='Ron' WHERE id=5");
 
-            preparedStatement.setInt(1, 7);
-            preparedStatement.setString(2, "Gretta");
-            preparedStatement.setInt(3, 27);
-            preparedStatement.setString(4, "gri@gmail.com");
-            preparedStatement.execute();
+            preparedStatement1.setInt(1, 8);
+            preparedStatement1.setString(2, "Adele");
+            preparedStatement1.setInt(3, 35);
+            preparedStatement1.setString(4, "ade@gmail.com");
+            preparedStatement1.execute();
+
+            preparedStatement2.setString(1, "Rick");
+            preparedStatement2.execute();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             while (resultSet.next()) {
