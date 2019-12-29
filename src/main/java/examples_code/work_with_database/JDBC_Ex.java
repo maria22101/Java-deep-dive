@@ -18,10 +18,20 @@ public class JDBC_Ex {
 
         // try-with-resources example
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                Statement statement = connection.createStatement()) {
+             Statement statement = connection.createStatement()) {
 
-            statement.execute("DELETE FROM users WHERE id=7");
-            statement.executeUpdate("UPDATE users SET name='Ron' WHERE id=5");
+//            statement.execute("DELETE FROM users WHERE id=7");
+//            statement.executeUpdate("UPDATE users SET name='Ron' WHERE id=5");
+
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                System.out.printf("%d: %s %s", id, name, email);
+                System.out.println();
+            }
+
 
         } catch (SQLException ex) {
             ex.printStackTrace();
