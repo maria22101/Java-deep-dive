@@ -5,7 +5,9 @@ import java.sql.*;
 public class JDBC_Ex {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "****";
+    private static final String PASSWORD = "tigra263";
+
+    public static final String INSERT_NEW = "INSERT INTO users VALUES(?, ?, ?, ?)";
 
     public static void main(String[] args) {
 
@@ -18,10 +20,18 @@ public class JDBC_Ex {
 
         // try-with-resources example
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-             Statement statement = connection.createStatement()) {
+             Statement statement = connection.createStatement();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW)
+                ) {
 
 //            statement.execute("DELETE FROM users WHERE id=7");
 //            statement.executeUpdate("UPDATE users SET name='Ron' WHERE id=5");
+
+            preparedStatement.setInt(1, 7);
+            preparedStatement.setString(2, "Gretta");
+            preparedStatement.setInt(3, 27);
+            preparedStatement.setString(4, "gri@gmail.com");
+            preparedStatement.execute();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
             while (resultSet.next()) {
