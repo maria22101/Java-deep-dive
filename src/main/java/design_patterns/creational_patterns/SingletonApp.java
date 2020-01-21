@@ -1,4 +1,4 @@
-package design_patterns.creational_patterns.Singleton;
+package design_patterns.creational_patterns;
 
 /**
  * Singleton design pattern implementation ensuring lazy initialization
