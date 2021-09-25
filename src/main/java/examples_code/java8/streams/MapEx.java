@@ -1,10 +1,10 @@
 package examples_code.java8.streams;
 
-import com.sun.xml.internal.ws.util.StringUtils;
 import examples_code.java8.lambda.User;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -24,7 +24,7 @@ public class MapEx {
         // list members capitalized
         List<String> names = Arrays.asList("eve", "ken", "arin");
         names.stream()
-                .map(StringUtils::capitalize)
+                .map(String::toUpperCase)
                 .forEach(System.out::println);
 
         // Objects to String
