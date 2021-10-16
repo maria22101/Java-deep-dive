@@ -1,4 +1,4 @@
-package web.gson_space_photos;
+package web.read_space_photos;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +10,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-public class SpacePhotoGetJsonFieldDemo1 {
+public class SpacePhotoGetJsonField1_gson {
 
     public static void main(String[] args) throws IOException {
         String url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY";
