@@ -1,0 +1,15 @@
+{
+  "firstName": "Mari",
+  "lastName": "Bi",
+  "course": {
+    "author": "John",
+    "title": "Programming",
+    "requirements":"Advanced java"
+  },
+  "personalContacts": [
+    "mobile",
+    "skype",
+    "slack",
+    "zoom"
+  ]
+}
